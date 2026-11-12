@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nadiya Bakery | Fresh Bread Everyday</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #fffaf5;
+            color: #4a3428;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+        header {
+            background: #fffaf5;
+            border-bottom: 1px solid #f1dfd0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #9a5b3c;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #d49a6a;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5b4437;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #b56d47;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+        .hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background:
+                linear-gradient(
+                    rgba(255, 250, 245, 0.82),
+                    rgba(255, 250, 245, 0.82)
+                ),
+                radial-gradient(
+                    circle at center,
+                    #f8dfc8 0%,
+                    #fffaf5 65%
+                );
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #f5dfcc;
+            color: #9a5b3c;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #4a3024;
+        }
+
+        .hero h1 span {
+            color: #b96f47;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: auto;
+            font-size: 18px;
+            color: #765e50;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 14px 30px;
+            background: #b96f47;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(185, 111, 71, 0.2);
+        }
+
+        .btn:hover {
+            background: #985538;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+        section {
+            padding: 90px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #4a3024;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #80695a;
+        }
+
+        /* =========================
+           MENU PRODUK
+        ========================= */
+        #menu {
+            background: #ffffff;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fffaf5;
+            border: 1px solid #f1e1d4;
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(90, 55, 35, 0.08);
+        }
+
+        .product-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            background: #f6dfca;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+        }
+
+        .product-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+            color: #51372b;
+        }
+
+        .product-card p {
+            color: #80695a;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #b96f47;
+            font-size: 18px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+        .about {
+            background: #f7eadf;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 17px;
+            color: #6f584a;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            background: #4b3328;
+            color: #f9eee7;
+            padding: 55px 20px 25px;
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .footer-column p {
+            color: #ddc9bd;
+            font-size: 15px;
+        }
+
+        .social {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #67493a;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: #b96f47;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid #67493a;
+            padding-top: 22px;
+            text-align: center;
+            color: #cdb9ad;
+            font-size: 14px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h1 {
+                font-size: 46px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+                margin: auto;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                font-size: 13px;
+                gap: 10px;
+            }
+
+            section {
+                padding: 65px 18px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER / NAVIGATION
+    ========================== -->
+    <header>
+        <nav>
+            <a href="#beranda" class="logo">
+                Nadiya <span>Bakery</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#menu">Menu Roti</a></li>
+                <li><a href="#tentang">Tentang Kami</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+    <main>
+
+        <section class="hero" id="beranda">
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    🥐 Freshly Baked Every Day
+                </div>
+
+                <h1>
+                    Kehangatan Roti,<br>
+                    <span>Setiap Hari.</span>
+                </h1>
+
+                <p>
+                    Selamat datang di Nadiya Bakery.
+                    Nikmati berbagai pilihan roti dan kue
+                    yang dibuat fresh setiap hari dari bahan
+                    berkualitas untuk menemani momen spesial Anda.
+                </p>
+
+                <a href="#menu" class="btn">
+                    Pesan Sekarang →
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             MENU UNGGULAN
+        ========================== -->
+        <section id="menu">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Menu Unggulan</h2>
+                    <p>
+                        Pilihan favorit yang selalu fresh dari oven kami.
+                    </p>
+                </div>
+
+                <div class="products">
+
+                    <!-- Produk 1 -->
+                    <div class="product-card">
+                        <div class="product-icon">
+                            🥐
+                        </div>
+
+                        <h3>Croissant Mentega</h3>
+
+                        <p>
+                            Croissant renyah berlapis dengan aroma
+                            mentega yang harum dan rasa yang lembut.
+                        </p>
+
+                        <div class="price">
+                            Rp 18.000
+                        </div>
+                    </div>
+
+
+                    <!-- Produk 2 -->
+                    <div class="product-card">
+                        <div class="product-icon">
+                            🍫
+                        </div>
+
+                        <h3>Roti Manis Cokelat</h3>
+
+                        <p>
+                            Roti lembut dengan isian cokelat manis
+                            yang cocok untuk teman sarapan dan ngopi.
+                        </p>
+
+                        <div class="price">
+                            Rp 15.000
+                        </div>
+                    </div>
+
+
+                    <!-- Produk 3 -->
+                    <div class="product-card">
+                        <div class="product-icon">
+                            🍰
+                        </div>
+
+                        <h3>Kue Tart Keju</h3>
+
+                        <p>
+                            Tart lembut dengan krim keju yang creamy,
+                            cocok untuk perayaan maupun hadiah.
+                        </p>
+
+                        <div class="price">
+                            Rp 45.000
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TENTANG KAMI
+        ========================== -->
+        <section class="about" id="tentang">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Tentang Kami</h2>
+                    <p>Rasa sederhana, dibuat dengan sepenuh hati.</p>
+                </div>
+
+                <div class="about-content">
+                    <p>
+                        Nadiya Bakery dibuat dengan cinta untuk menghadirkan
+                        roti dan kue yang lezat bagi keluarga Indonesia.
+                        Kami menggunakan bahan-bahan pilihan berkualitas
+                        tinggi dan mengolahnya dengan penuh perhatian.
+                        Setiap produk dipanggang fresh agar Anda dapat
+                        menikmati rasa, aroma, dan kelembutan terbaik
+                        di setiap gigitan.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER / KONTAK
+    ========================== -->
+    <footer id="kontak">
+
+        <div class="footer-grid">
+
+            <div class="footer-column">
+                <h3>📍 Alamat</h3>
+                <p>
+                    Jl. Melati No. 25<br>
+                    Surabaya, Jawa Timur
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>🕐 Jam Buka</h3>
+                <p>
+                    Senin - Sabtu<br>
+                    07.00 - 20.00 WIB
+                </p>
+                <br>
+                <p>
+                    Minggu<br>
+                    08.00 - 18.00 WIB
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Ikuti Kami</h3>
+                <p>
+                    Temukan produk dan promo terbaru kami.
+                </p>
+
+                <div class="social">
+                    <a href="#" aria-label="Instagram">◎</a>
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="TikTok">♪</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Nadiya Bakery. Dibuat dengan ❤️ dan roti hangat.
+        </div>
+
+    </footer>
+
+</body>
+</html>
